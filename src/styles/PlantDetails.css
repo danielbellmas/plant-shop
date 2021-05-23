@@ -1,0 +1,10 @@
+.details {
+  background: white;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.details img {
+  width: 60vh;
+  height: auto;
+}

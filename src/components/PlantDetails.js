@@ -1,21 +1,77 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import db from "../db.json";
+import React, { useState, useContext } from "react";
+import { useLocation, useHistory } from "react-router-dom";
+import { Button, Typography } from "@material-ui/core";
 import "../styles/PlantDetails.css";
+import { ProductContext, CartContext } from "../PlantContext";
+import Swal from "sweetalert2";
+
 const PlantDetails = () => {
+  const [itemQuantity, setItemQuantity] = useState(1);
+  const [plants, setPlants] = useContext(ProductContext);
+  const [cartItems, setCartItems] = useContext(CartContext);
   const location = useLocation();
-  const plantName = location.pathname.split("/")[2];
-  const plantItem = db.filter((plant) => plantName === plant.name)[0];
-  console.log(plantItem.name);
+  const history = useHistory();
+  const plantId = location.pathname.split("/")[2];
+  const plant = plants.find((plant) => plantId === plant.id);
+
+  const handleAddToCart = () => {
+    let existingItemIndex = cartItems.findIndex(
+      (plant) => plant.id === plantId
+    );
+    if (existingItemIndex >= 0)
+      cartItems[existingItemIndex].quantity += itemQuantity;
+    else setCartItems([...cartItems, { ...plant, quantity: itemQuantity }]);
+
+    Swal.fire({
+      position: "top-end",
+      title: `${plant.name} successfully added to cart!`,
+      icon: "success",
+      showCancelButton: true,
+      cancelButtonText: "Continue shopping",
+      cancelButtonColor: "green",
+      confirmButtonText: "Go To Cart",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        history.push("/cart");
+      } else history.push("/products");
+    });
+  };
+
+  const IncrementQuantity = () => {
+    setItemQuantity(itemQuantity + 1);
+    //Maybe add a limit of 4 plants
+  };
+  const DecrementQuantity = () => {
+    if (itemQuantity > 1) setItemQuantity(itemQuantity - 1);
+    else setItemQuantity(1);
+  };
+
   return (
     <div className="details">
-      <div className="plant-image">
-        <img src={plantItem.image} alt={plantItem.name} />
-      </div>
-      <div className="description">
-        <h1>{plantItem.name}</h1>
-        <p>{plantItem.price}</p>
-        <p>{plantItem.details}</p>
+      <img className="plant-image box" src={plant.image} alt={plant.name} />
+
+      <div className="description box">
+        <h1>{plant.name}</h1>
+        <p>{plant.price}</p>
+        <p>{plant.details}</p>
+        <div className="add-to-cart">
+          <Button type="button" size="small" onClick={DecrementQuantity}>
+            -
+          </Button>
+          <Typography variant="h5">{itemQuantity}</Typography>
+          <Button type="button" size="small" onClick={IncrementQuantity}>
+            +
+          </Button>
+          <Button
+            fullWidth
+            type="button"
+            size="large"
+            onClick={handleAddToCart}
+            color="primary"
+          >
+            Add To Cart
+          </Button>
+        </div>
       </div>
     </div>
   );

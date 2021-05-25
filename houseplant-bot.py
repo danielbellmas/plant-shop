@@ -28,7 +28,8 @@ for page in range(1, 4):
         price = plant_split[1].split(" ")[0]
 
         # Add to list
-        PLANT_LIST.append({"name": name, "price": price, "image": plant_image})
+        PLANT_LIST.append({"id": f"12a3b{page}{counter}", "name": name,
+                          "price": price, "image": plant_image})
         counter += 1
     print(page)
 
@@ -49,10 +50,12 @@ for i in range(len(PLANT_LIST)):
         except:
             details = ""
         details = ""
-    PLANT_LIST[i]["details"] = details.strip().capitalize()
+    PLANT_LIST[i]["details"] = details.strip(
+    ).capitalize().replace(". ", ".\n")
 # Add to json file
-out_file = open("src\db.json", "w")
+out_file = open("src\plantDB.json", "w")
 json.dump(PLANT_LIST, out_file, indent=6)
 out_file.close()
 
 driver.quit()
+#

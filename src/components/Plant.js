@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Card,
   CardMedia,
@@ -7,20 +7,33 @@ import {
   Typography,
   IconButton,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AddShoppingCart } from "@material-ui/icons";
 import useStyles from "../styles/plant-style";
-import swal from "sweetalert";
-import PlantDetails from "./PlantDetails";
+import Swal from "sweetalert2";
+import { CartContext } from "../PlantContext";
 
-const Plant = ({ name, price, image, details }) => {
+const Plant = ({ plant }) => {
+  const { id, name, price, image } = plant;
   const classes = useStyles();
-
+  const history = useHistory();
+  const [cartItems, setCartItems] = useContext(CartContext);
   const AddToCart = () => {
-    //Need to add to cart and add a button to the cart
-    swal({
+    let existingItemIndex = cartItems.findIndex((item) => item.id === plant.id);
+    if (existingItemIndex >= 0) cartItems[existingItemIndex].quantity += 1;
+    else setCartItems([...cartItems, { ...plant, quantity: 1 }]);
+    Swal.fire({
+      position: "top-end",
       title: `${name} successfully added to cart!`,
       icon: "success",
+      showCancelButton: true,
+      cancelButtonText: "Continue shopping",
+      cancelButtonColor: "green",
+      confirmButtonText: "Go To Cart",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        history.push("/cart");
+      }
     });
   };
 
@@ -28,8 +41,7 @@ const Plant = ({ name, price, image, details }) => {
     <Card className={classes.root}>
       <CardMedia
         component={Link}
-        to={`/products/${name}`}
-        /*change to id */
+        to={`/products/${id}`}
         className={classes.media}
         image={image}
         title={name}

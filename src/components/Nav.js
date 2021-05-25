@@ -1,11 +1,13 @@
 import logo from "../images/grow_logo.png";
 import { IconButton, Badge } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../PlantContext";
 import { Link } from "react-router-dom";
 import "../styles/Nav.css";
-
 const Nav = () => {
+  const [cartItems, setCartItems] = useContext(CartContext);
+
   const NavSlide = () => {
     const burger = document.querySelector(".burger");
     const nav = document.querySelector(".nav-links");
@@ -25,6 +27,15 @@ const Nav = () => {
         }s`;
     });
   };
+  // const NavSlideClose = () => {
+  //   const burger = document.querySelector(".burger");
+  //   const nav = document.querySelector(".nav-links");
+  //   //Toggle Nav
+  //   nav.classList.toggle("nav-active");
+
+  //   //Burger Animation
+  //   burger.classList.toggle("burger-shape");
+  // };
 
   const navLinkStyle = {
     textDecoration: "none",
@@ -39,29 +50,35 @@ const Nav = () => {
           <img className="logo" src={logo} alt="grow." />
         </Link>
       </div>
+
       <nav>
-        <ul className="nav-links">
+        <ul className="nav-links" onClick="">
+          <Link style={navLinkStyle} to="/">
+            <li>Home</li>
+          </Link>
           <Link style={navLinkStyle} to="/products">
             <li>Products</li>
           </Link>
           <Link style={navLinkStyle} to="/contacts">
             <li>Contacts</li>
           </Link>
-          <Link style={navLinkStyle} to="/signup">
+          {/* <Link style={navLinkStyle} to="/signup">
             <li>Sign Up</li>
           </Link>
           <Link style={navLinkStyle} to="/login">
             <li>Log In</li>
-          </Link>
+          </Link> */}
         </ul>
       </nav>
+
       <div className="cart">
         <IconButton component={Link} to="/cart" aria-label="Show Cart Items">
-          <Badge badgeContent={2} color="secondary">
-            <ShoppingCart />
+          <Badge badgeContent={cartItems.length} color="secondary">
+            <ShoppingCart style={{ fill: "whitesmoke" }} fontSize="large" />
           </Badge>
         </IconButton>
       </div>
+
       <div className="burger" onClick={NavSlide}>
         <div className="line1"></div>
         <div className="line2"></div>

@@ -1,10 +1,23 @@
 .details {
   background: white;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
+  align-items: center;
+  max-width: 90%;
+  margin: auto;
 }
 
-.details img {
-  width: 60vh;
-  height: auto;
+.description {
+  max-width: 50%;
+}
+
+.box {
+  flex: 0.4 1 150px; /*  Stretching: */
+  /* flex: 0 1 150px;  No stretching: */
+  margin: 1rem;
+}
+.add-to-cart {
+  display: grid;
+  place-items: center;
 }

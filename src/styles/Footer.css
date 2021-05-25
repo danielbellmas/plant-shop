@@ -1,0 +1,36 @@
+:root {
+  --main-bg-color: linear-gradient(
+    244.36deg,
+    rgba(33, 107, 101, 0.561) 10.28%,
+    rgba(33, 107, 101, 0.66) 109.64%
+  );
+}
+.site-footer {
+  background: var(--main-bg-color);
+  padding: 2rem 0 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: whitesmoke;
+  bottom: 0;
+  height: 20vh;
+}
+
+.site-footer h6 {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
+.site-footer a {
+  color: whitesmoke;
+}
+.container {
+  display: grid;
+  place-items: center;
+}
+
+.copyright-text {
+  margin: 0;
+  align-self: center;
+}

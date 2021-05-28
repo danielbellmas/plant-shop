@@ -8,18 +8,23 @@ import PlantDetails from "./components/PlantDetails";
 import Footer from "./components/Footer";
 import Checkout from "./components/CheckoutForm/Checkout";
 import Home from "./components/Home";
+import Contacts from "./components/Contacts";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 function App() {
   return (
     <Router>
+      <Nav />
       <div>
-        <Nav />
-
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={PlantList} />
-          <Route exact path="/cart" component={Cart} />
           <Route path="/products/:id" component={PlantDetails} />
+          <Route exact path="/cart" component={Cart} />
           <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/contacts" component={Contacts} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/signup" component={SignUp} />
         </Switch>
         <Footer />
       </div>

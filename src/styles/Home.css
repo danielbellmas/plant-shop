@@ -31,7 +31,7 @@
 .calathea {
   width: 25%;
   height: auto;
-  filter: drop-shadow(0.5rem 0.5rem 0.7rem rgba(49, 49, 49, 0.555));
+  filter: drop-shadow(0.2rem 0.2rem 0.5rem rgba(49, 49, 49, 0.555));
   overflow: hidden;
   transform: translatey(0px);
   animation: float 5s ease-in-out infinite;
@@ -74,11 +74,13 @@
 }
 
 .featured-plants {
-  height: 80vh;
+  min-height: 80vh;
+  height: auto;
   width: 95%;
   margin: auto;
   display: grid;
   place-items: center;
+  margin-bottom: 2rem;
 }
 .featured-plants h1::after {
   content: "";

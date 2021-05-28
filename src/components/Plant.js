@@ -18,6 +18,7 @@ const Plant = ({ plant }) => {
   const classes = useStyles();
   const history = useHistory();
   const [cartItems, setCartItems] = useContext(CartContext);
+
   const AddToCart = () => {
     let existingItemIndex = cartItems.findIndex((item) => item.id === plant.id);
     if (existingItemIndex >= 0) cartItems[existingItemIndex].quantity += 1;
@@ -30,6 +31,7 @@ const Plant = ({ plant }) => {
       cancelButtonText: "Continue shopping",
       cancelButtonColor: "green",
       confirmButtonText: "Go To Cart",
+      confirmButtonColor: "blue",
     }).then((result) => {
       if (result.isConfirmed) {
         history.push("/cart");

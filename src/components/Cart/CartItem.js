@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardMedia,
@@ -56,7 +57,13 @@ const CartItem = ({ item, CalculateSubtotal }) => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
-      <CardMedia image={item.image} alt={item.name} className={classes.media} />
+      <CardMedia
+        component={Link}
+        to={`/products/${item.id}`}
+        image={item.image}
+        alt={item.name}
+        className={classes.media}
+      />
       <CardContent className={classes.cardContent}>
         <Typography variant="h4">{item.name}</Typography>
         <Typography variant="h5">{item.price}</Typography>
@@ -67,7 +74,12 @@ const CartItem = ({ item, CalculateSubtotal }) => {
             -
           </Button>
           <Typography>{itemQuantity}</Typography>
-          <Button type="button" size="small" onClick={IncrementQuantity}>
+          <Button
+            color=""
+            type="button"
+            size="small"
+            onClick={IncrementQuantity}
+          >
             +
           </Button>
         </div>

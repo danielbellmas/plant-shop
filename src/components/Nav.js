@@ -12,6 +12,7 @@ const Nav = () => {
     const burger = document.querySelector(".burger");
     const nav = document.querySelector(".nav-links");
     const navLinks = document.querySelectorAll(".nav-links li");
+
     //Toggle Nav
     nav.classList.toggle("nav-active");
 
@@ -27,20 +28,11 @@ const Nav = () => {
         }s`;
     });
   };
-  // const NavSlideClose = () => {
-  //   const burger = document.querySelector(".burger");
-  //   const nav = document.querySelector(".nav-links");
-  //   //Toggle Nav
-  //   nav.classList.toggle("nav-active");
-
-  //   //Burger Animation
-  //   burger.classList.toggle("burger-shape");
-  // };
 
   const navLinkStyle = {
     textDecoration: "none",
     color: "white",
-    fontSize: "1.1rem",
+    fontSize: "1.3rem",
   };
 
   return (
@@ -52,7 +44,7 @@ const Nav = () => {
       </div>
 
       <nav>
-        <ul className="nav-links" onClick="">
+        <ul className="nav-links">
           <Link style={navLinkStyle} to="/">
             <li>Home</li>
           </Link>
@@ -61,6 +53,12 @@ const Nav = () => {
           </Link>
           <Link style={navLinkStyle} to="/contacts">
             <li>Contacts</li>
+          </Link>
+          <Link style={navLinkStyle} to="/signup">
+            <li>Sign Up</li>
+          </Link>
+          <Link style={navLinkStyle} to="/signin">
+            <li>Sign In</li>
           </Link>
           {/* <Link style={navLinkStyle} to="/signup">
             <li>Sign Up</li>

@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-12">
+    <footer className="site-footer">
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12 col-md-12">
             <h6>About</h6>
-            <p class="text-justify">
+            <p className="text-justify">
               grow.com was founded with a simple but important goal: to bring
               back traditions of garden, soil, and nature, blend them with the
               latest technology to embrace modern living.
             </p>
           </div>
 
-          {/* <div class="col-xs-6 col-md-3">
+          {/* <div className="col-xs-6 col-md-3">
             <h6>Quick Links</h6>
-            <ul class="footer-links">
+            <ul className="footer-links">
               <Link to="/contacts">
                 <li>Contact Us</li>
 
@@ -26,11 +26,12 @@ const Footer = () => {
           </div> */}
         </div>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <p class="copyright-text">
-              Copyright &copy; 2021 All Rights Reserved by <em>grow.</em>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 col-sm-12 col-xs-12">
+            <p className="copyright-text">
+              Copyright &copy; {new Date().getFullYear()} All Rights Reserved by{" "}
+              <em>grow.</em>
             </p>
           </div>
         </div>

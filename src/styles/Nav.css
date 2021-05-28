@@ -13,7 +13,7 @@ header {
   width: 100%;
 }
 .logo {
-  padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
 }
 .logo-container,
 .nav-links,
@@ -32,11 +32,7 @@ nav {
   justify-content: space-evenly;
   list-style: none;
 }
-/* .nav-link {
-  text-decoration: none;
-  color: white;
-  font-size: 1.1rem;
-} */
+
 .cart {
   flex: 0.5;
   margin-right: 1.5rem;
@@ -45,7 +41,6 @@ nav {
 .burger {
   flex: 1;
   display: none;
-  padding-left: 2rem;
 }
 .burger div {
   width: 1.5rem;
@@ -59,6 +54,11 @@ nav {
   body {
     overflow-x: hidden;
   }
+  /* .logo-container {
+    width: 80%;
+    height: auto;
+  } */
+
   .nav-links {
     position: absolute;
     right: 0px;

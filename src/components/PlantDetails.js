@@ -30,6 +30,7 @@ const PlantDetails = () => {
       cancelButtonText: "Continue shopping",
       cancelButtonColor: "green",
       confirmButtonText: "Go To Cart",
+      confirmButtonColor: "blue",
     }).then((result) => {
       if (result.isConfirmed) {
         history.push("/cart");
@@ -55,14 +56,29 @@ const PlantDetails = () => {
         <p>{plant.price}</p>
         <p>{plant.details}</p>
         <div className="add-to-cart">
-          <Button type="button" size="small" onClick={DecrementQuantity}>
+          <Button
+            style={{ color: "#216B65", fontWeight: "900", fontSize: "1.2rem" }}
+            type="button"
+            size="small"
+            onClick={DecrementQuantity}
+          >
             -
           </Button>
           <Typography variant="h5">{itemQuantity}</Typography>
-          <Button type="button" size="small" onClick={IncrementQuantity}>
+          <Button
+            style={{ color: "#216B65", fontWeight: "900", fontSize: "1.2rem" }}
+            type="button"
+            size="small"
+            onClick={IncrementQuantity}
+          >
             +
           </Button>
           <Button
+            style={{
+              color: "white",
+              background: "#216B65",
+              fontSize: "1.3rem",
+            }}
             fullWidth
             type="button"
             size="large"

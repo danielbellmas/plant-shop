@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
   root: {
-    maxWidth: "85%",
+    width: "85%",
     margin: "auto",
     boxShadow: "0.1rem 0.2rem 0.5rem",
   },

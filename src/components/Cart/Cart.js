@@ -39,8 +39,17 @@ const Cart = () => {
 
   const EmptyCart = () => (
     <>
-      <Typography variant="body1">There are no Plants in your cart</Typography>
+      <Typography style={{ fontSize: "2rem" }}>
+        There are no Plants in your cart
+      </Typography>
+      <br />
       <Button
+        style={{
+          background: "rgba(33, 107, 101, 0.8)",
+          color: "white",
+          fontWeight: "400",
+          fontSize: "1.3rem",
+        }}
         size="large"
         type="button"
         variant="contained"
@@ -93,7 +102,6 @@ const Cart = () => {
 
   return (
     <Container className={classes.container}>
-      <div className={classes.toolbar} />
       <Typography className={classes.title} variant="h3" gutterBottom>
         Your Shopping Cart
       </Typography>

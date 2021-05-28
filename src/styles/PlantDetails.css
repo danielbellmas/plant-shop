@@ -18,6 +18,6 @@
   margin: 1rem;
 }
 .add-to-cart {
-  display: grid;
+  display: inline-flex;
   place-items: center;
 }

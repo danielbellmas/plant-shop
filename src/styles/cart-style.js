@@ -1,14 +1,22 @@
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
-  toolbar: theme.mixins.toolbar,
   title: {
     marginTop: "5%",
+    display: "grid",
+    placeItems: "center",
+    "&::after": {
+      content: "''",
+      background: "rgba(33, 107, 101, 0.7)",
+      width: "13rem",
+      height: "0.5rem",
+      borderRadius: "0.5rem",
+      placeItems: "center",
+    },
   },
   container: {
     display: "grid",
-    alignItems: "center",
-    justifyContent: "space-between",
+    placeItems: "center",
     marginBottom: "2rem",
   },
   emptyButton: {

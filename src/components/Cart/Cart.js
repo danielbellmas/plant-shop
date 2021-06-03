@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Typography, Container, Button, Grid } from "@material-ui/core";
 import useStyles from "../../styles/cart-style.js";
 import { Link } from "react-router-dom";
@@ -40,7 +40,7 @@ const Cart = () => {
   const EmptyCart = () => (
     <>
       <Typography style={{ fontSize: "2rem" }}>
-        There are no Plants in your cart
+        There are no plants in your cart
       </Typography>
       <br />
       <Button
@@ -62,7 +62,7 @@ const Cart = () => {
   );
   const FilledCart = () => (
     <>
-      <Grid justify="space-between" container spacing={3}>
+      <Grid justify="space-around" container spacing={3}>
         {cartItems.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
             <CartItem item={item} CalculateSubtotal={CalculateSubtotal} />
@@ -72,6 +72,16 @@ const Cart = () => {
       <div className={classes.cardDetails}>
         <Typography variant="h4">Subtotal: ${subtotal}</Typography>
         <div>
+          <Button
+            className={classes.emptyButton}
+            size="large"
+            type="button"
+            variant="contained"
+            style={{ background: "#216B65", color: "white" }}
+            href="/products"
+          >
+            Continue Shopping
+          </Button>
           <Button
             className={classes.emptyButton}
             size="large"

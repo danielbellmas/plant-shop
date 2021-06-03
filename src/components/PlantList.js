@@ -2,6 +2,7 @@ import React, { useState, useRef, useContext } from "react";
 import { Grid, InputBase, IconButton, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
+// import Pagination from "@material-ui/lab/Pagination";
 import Plant from "./Plant";
 import { ProductContext } from "../PlantContext";
 
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PlantList = () => {
-  const [plants, setPlants] = useContext(ProductContext);
+  const [plants] = useContext(ProductContext);
   const [filteredPlants, setFilteredPlants] = useState(plants);
   const classes = useStyles();
 
@@ -52,19 +53,26 @@ const PlantList = () => {
       </IconButton>
     </Paper>
   );
-
   return (
     <main
       style={{ textAlign: "center", marginTop: "2rem", marginBottom: "2rem" }}
     >
       <SearchBar />
-      <Grid container justify="center" spacing={4}>
-        {filteredPlants.map((plant) => (
-          <Grid item key={plant.id} xs={12} sm={6} md={4} lg={3}>
-            <Plant plant={plant} />
-          </Grid>
-        ))}
-      </Grid>
+      {filteredPlants.length !== 0 ? (
+        <Grid container justify="center" spacing={3}>
+          {filteredPlants.map((plant) => (
+            <Grid item key={plant.id} xs={12} sm={6} md={4} lg={3}>
+              <Plant plant={plant} />
+            </Grid>
+          ))}
+          {/* <Pagination count={3} color="primary" /> */}
+        </Grid>
+      ) : (
+        <>
+          <h1>No plants found.</h1>
+          <h4>Please type another plant 🌿</h4>
+        </>
+      )}
     </main>
   );
 };

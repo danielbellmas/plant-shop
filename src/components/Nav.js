@@ -6,7 +6,7 @@ import { CartContext } from "../PlantContext";
 import { Link } from "react-router-dom";
 import "../styles/Nav.css";
 const Nav = () => {
-  const [cartItems, setCartItems] = useContext(CartContext);
+  const [cartItems] = useContext(CartContext);
 
   const NavSlide = () => {
     const burger = document.querySelector(".burger");

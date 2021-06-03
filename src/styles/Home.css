@@ -26,9 +26,6 @@
   font-size: 4rem;
   font-weight: 800;
 }
-.slogan {
-  margin-left: 1.5rem;
-}
 
 .calathea {
   width: 25%;
@@ -97,6 +94,7 @@
 @media screen and (max-width: 600px) {
   .slogan {
     text-align: center;
+    margin-left: 0;
   }
   .calathea {
     width: 50%;

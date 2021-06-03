@@ -1,10 +1,11 @@
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   title: {
     marginTop: "5%",
     display: "grid",
     placeItems: "center",
+    textAlign: "center",
     "&::after": {
       content: "''",
       background: "rgba(33, 107, 101, 0.7)",

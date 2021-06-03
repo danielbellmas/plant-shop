@@ -5,7 +5,9 @@
     rgba(33, 107, 101, 0.66) 109.64%
   );
   --body-bg-color: #eaf1e3c5;
+  --float-length: -2.5rem;
 }
+
 .main-content {
   display: flex;
   flex-wrap: wrap;
@@ -66,7 +68,7 @@
     transform: translatey(0px);
   }
   50% {
-    transform: translatey(-2.5rem);
+    transform: translatey(var(--float-length));
   }
   100% {
     transform: translatey(0px);
@@ -91,4 +93,26 @@
   display: grid;
   place-items: center;
   transform: translateX(50%);
+}
+@media screen and (max-width: 600px) {
+  .slogan {
+    text-align: center;
+  }
+  .calathea {
+    width: 50%;
+  }
+  .arrow {
+    visibility: hidden;
+  }
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  align-items: center;
+  --float-length: -0.5rem;
+  color: #216b65;
+  margin: -2.7rem 0 1rem 0;
+  animation: float 1.5s infinite;
 }

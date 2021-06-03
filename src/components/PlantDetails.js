@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const PlantDetails = () => {
   const [itemQuantity, setItemQuantity] = useState(1);
-  const [plants, setPlants] = useContext(ProductContext);
+  const [plants] = useContext(ProductContext);
   const [cartItems, setCartItems] = useContext(CartContext);
   const location = useLocation();
   const history = useHistory();

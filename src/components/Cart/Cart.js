@@ -78,7 +78,8 @@ const Cart = () => {
             type="button"
             variant="contained"
             style={{ background: "#216B65", color: "white" }}
-            href="/products"
+            component={Link}
+            to="/products"
           >
             Continue Shopping
           </Button>

@@ -6,9 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { ProductProvider } from "./PlantContext";
 
 ReactDOM.render(
-  <ProductProvider>
-    <App />
-  </ProductProvider>,
+  <React.StrictMode>
+    <ProductProvider>
+      <App />
+    </ProductProvider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

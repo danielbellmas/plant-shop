@@ -9,24 +9,26 @@ const Nav = () => {
   const [cartItems] = useContext(CartContext);
 
   const NavSlide = () => {
-    const burger = document.querySelector(".burger");
-    const nav = document.querySelector(".nav-links");
-    const navLinks = document.querySelectorAll(".nav-links li");
+    if (window.innerWidth <= 900) {
+      const burger = document.querySelector(".burger");
+      const nav = document.querySelector(".nav-links");
+      const navLinks = document.querySelectorAll(".nav-links li");
 
-    //Toggle Nav
-    nav.classList.toggle("nav-active");
+      //Toggle Nav
+      nav.classList.toggle("nav-active");
 
-    //Burger Animation
-    burger.classList.toggle("burger-shape");
+      //Burger Animation
+      burger.classList.toggle("burger-shape");
 
-    //Animation Links
-    navLinks.forEach((link, index) => {
-      if (link.style.animation) link.style.animation = "";
-      else
-        link.style.animation = `navLinkFade 0.5s ease forwards ${
-          index / 7 + 0.3
-        }s`;
-    });
+      //Animation Links
+      navLinks.forEach((link, index) => {
+        if (link.style.animation) link.style.animation = "";
+        else
+          link.style.animation = `navLinkFade 0.5s ease forwards ${
+            index / 7 + 0.3
+          }s`;
+      });
+    }
   };
 
   const navLinkStyle = {
@@ -44,7 +46,7 @@ const Nav = () => {
       </div>
 
       <nav>
-        <ul className="nav-links">
+        <ul className="nav-links" onClick={NavSlide}>
           <Link style={navLinkStyle} to="/">
             <li>Home</li>
           </Link>

@@ -62,12 +62,6 @@ const Nav = () => {
           <Link style={navLinkStyle} to="/signin">
             <li>Sign In</li>
           </Link>
-          {/* <Link style={navLinkStyle} to="/signup">
-            <li>Sign Up</li>
-          </Link>
-          <Link style={navLinkStyle} to="/login">
-            <li>Log In</li>
-          </Link> */}
         </ul>
       </nav>
 

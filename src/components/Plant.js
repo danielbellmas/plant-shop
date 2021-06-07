@@ -7,7 +7,7 @@ import {
   Typography,
   IconButton,
 } from "@material-ui/core";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { AddShoppingCart } from "@material-ui/icons";
 import useStyles from "../styles/plant-style";
 import Swal from "sweetalert2";
@@ -17,6 +17,7 @@ const Plant = ({ plant }) => {
   const { id, name, price, image } = plant;
   const classes = useStyles();
   const history = useHistory();
+  const location = useLocation();
   const [cartItems, setCartItems] = useContext(CartContext);
 
   const AddToCart = () => {
@@ -33,9 +34,12 @@ const Plant = ({ plant }) => {
       confirmButtonText: "Go To Cart",
       confirmButtonColor: "blue",
     }).then((result) => {
-      if (result.isConfirmed) {
-        history.push("/cart");
-      }
+      if (result.isConfirmed) history.push("/cart");
+      else if (
+        location.pathname === "/" &&
+        result.dismiss === Swal.DismissReason.cancel
+      )
+        history.push("/products");
     });
   };
 

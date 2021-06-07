@@ -30,7 +30,7 @@ const Checkout = () => {
           <Typography variant="subtitle2">Order ref: ref</Typography>
         </div>
         <br />
-        <Button component={Link} to="/" variant="outlined" type="button">
+        <Button href="/" variant="outlined" type="button">
           Back To Home Page
         </Button>
       </>

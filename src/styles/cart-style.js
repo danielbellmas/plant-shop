@@ -22,23 +22,32 @@ export default makeStyles((theme) => ({
   },
   emptyButton: {
     minWidth: "150px",
-    [theme.breakpoints.down("xs")]: {
-      marginBottom: "5px",
-    },
-    [theme.breakpoints.up("xs")]: {
-      marginRight: "20px",
-    },
+    margin: "1rem",
+    marginTop: 0,
   },
   checkoutButton: {
     minWidth: "150px",
+    margin: "1rem",
+    marginTop: 0,
+  },
+  continueButton: {
+    minWidth: "150px",
+    margin: "1rem",
+    marginTop: 0,
+  },
+  buttons: {
+    display: "inline-flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
   },
   link: {
     textDecoration: "none",
   },
   cardDetails: {
     display: "flex",
+    flexWrap: "wrap",
     marginTop: "10%",
     width: "100%",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
 }));

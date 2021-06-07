@@ -62,7 +62,7 @@ const Cart = () => {
   );
   const FilledCart = () => (
     <>
-      <Grid justify="space-around" container spacing={3}>
+      <Grid container spacing={3} justify="space-around">
         {cartItems.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
             <CartItem item={item} CalculateSubtotal={CalculateSubtotal} />
@@ -70,10 +70,24 @@ const Cart = () => {
         ))}
       </Grid>
       <div className={classes.cardDetails}>
-        <Typography variant="h4">Subtotal: ${subtotal}</Typography>
-        <div>
+        <Typography variant="h4">
+          Subtotal: <b>${subtotal}</b>
+        </Typography>
+        <div className={classes.buttons}>
           <Button
-            className={classes.emptyButton}
+            className={classes.checkoutButton}
+            style={{ color: "white" }}
+            size="large"
+            type="button"
+            variant="contained"
+            color="primary"
+            component={Link}
+            to="/checkout"
+          >
+            Checkout
+          </Button>
+          <Button
+            className={classes.continueButton}
             size="large"
             type="button"
             variant="contained"
@@ -92,17 +106,6 @@ const Cart = () => {
             onClick={handleEmptyCart}
           >
             Empty Cart
-          </Button>
-          <Button
-            className={classes.checkoutButton}
-            size="large"
-            type="button"
-            variant="contained"
-            color="primary"
-            component={Link}
-            to="/checkout"
-          >
-            Checkout
           </Button>
         </div>
       </div>

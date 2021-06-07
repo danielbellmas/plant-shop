@@ -9,7 +9,8 @@ const Contacts = () => {
   const watchAllFields = watch();
 
   const handleSendForm = (data) => {
-    const { name, email, subject, message } = data;
+    //The data that's needed to be stored
+    //const { name, email, subject, message } = data;
 
     if (!validateEmail()) {
       //Maybe there is a way to check error with useForm

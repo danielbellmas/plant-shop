@@ -1,7 +1,7 @@
 # E-commerce plant nursery
 
-A nursery ecommerce shop called _grow._.
-The project is scraping the data from another website using python and selenuim, and stores it in a .json file.
+A nursery e-commerce shop called _grow._.
+The project is scraping the data from another website using python and selenium.
 
 ## Contributing
 

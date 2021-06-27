@@ -1,7 +1,8 @@
 # E-commerce plant nursery
+![‏‏לכידה](https://user-images.githubusercontent.com/76179660/123539103-b89b5b00-d740-11eb-8ae8-088f3114c767.PNG)
 
-A nursery ecommerce shop called _grow._.
-The project is scraping the data from another website using python and selenuim, and stores it in a .json file.
+A nursery e-commerce shop called _grow._.
+The project is scraping the data from another website using python and selenium.
 
 ## Contributing
 

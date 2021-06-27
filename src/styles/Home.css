@@ -102,6 +102,9 @@
   .arrow {
     visibility: hidden;
   }
+  .main-content {
+    height: 100vh;
+  }
 }
 
 .arrow {

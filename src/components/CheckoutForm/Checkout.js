@@ -20,29 +20,29 @@ const Checkout = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [shippingData, setShippingData] = useState({});
-
-  let Confirmation = () =>
-    /* order.customer*/ true ? (
-      <>
-        <div>
-          <Typography variant="h6">Thank you for your purchase!</Typography>
-          <Divider className={classes.divider} />
-          <Typography variant="subtitle2">Order ref: ref</Typography>
-        </div>
-        <br />
-        <Button href="/" variant="outlined" type="button">
-          Back To Home Page
-        </Button>
-      </>
-    ) : (
-      <div className={classes.spinner}>
-        <CircularProgress />
+  console.log(shippingData);
+  let Confirmation = () => (
+    <>
+      <div>
+        <Typography variant="h6">
+          Thank you for your purchase! {shippingData.firstName}{" "}
+          {shippingData.lastName}
+        </Typography>
+        <Divider className={classes.divider} />
+        <Typography variant="subtitle2">
+          Order ref: {shippingData.lastName}1Ba34
+        </Typography>
       </div>
-    );
+      <br />
+      <Button href="/" variant="outlined" type="button">
+        Back To Home Page
+      </Button>
+    </>
+  );
 
   const Form = () =>
     activeStep === 0 ? (
-      <AddressForm next={next} />
+      <AddressForm next={next} setShippingData={setShippingData} />
     ) : (
       <PaymentForm
         shippingData={shippingData}

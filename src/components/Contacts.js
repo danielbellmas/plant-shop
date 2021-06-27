@@ -29,7 +29,7 @@ const Contacts = () => {
       });
 
       //Reset Fields
-      // reset(data); doesnt work well
+      reset(data);
     } else {
       Swal.fire({
         title: "Validation error.",
@@ -42,7 +42,6 @@ const Contacts = () => {
     }
   };
   const validateEmail = () => {
-    if (!watchAllFields.email) return "";
     return !watchAllFields?.email?.match(
       "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$" //Not a perfect email validator
     );

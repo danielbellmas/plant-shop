@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
-const Review = ({ cartItems, subtotal }) => {
+const Overview = ({ cartItems, subtotal }) => {
   return (
     <>
       <Typography variant="h6" gutterBottom>
@@ -27,4 +27,4 @@ const Review = ({ cartItems, subtotal }) => {
   );
 };
 
-export default Review;
+export default Overview;

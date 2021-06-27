@@ -4,16 +4,19 @@ import { useForm, FormProvider } from "react-hook-form";
 import { Button, Grid, Typography } from "@material-ui/core";
 import FormInput from "./FormInput";
 
-const AddressForm = ({ next }) => {
+const AddressForm = ({ next, setShippingData }) => {
   const methods = useForm();
-
+  const handleDataSubmit = (data) => {
+    setShippingData(data);
+    next(data);
+  };
   return (
     <>
       <Typography variant="h6" gutterBottom>
         Shipping Address
       </Typography>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit((data) => next(data))}>
+        <form onSubmit={methods.handleSubmit((data) => handleDataSubmit(data))}>
           <Grid container spacing={3}>
             <FormInput
               required

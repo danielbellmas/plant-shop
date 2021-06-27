@@ -6,13 +6,13 @@ import {
   ElementsConsumer,
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import Review from "./Review";
+import Overview from "./Overview";
 import { CartContext, CartSubtotalContext } from "../../PlantContext";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-const PaymentForm = ({ shippingData, backStep, nextStep }) => {
-  const [cartItems] = useContext(CartContext);
+const PaymentForm = ({ backStep, nextStep }) => {
+  const [cartItems, setCartItems] = useContext(CartContext);
   const [subtotal] = useContext(CartSubtotalContext);
 
   const handleSubmit = async (event, elements, stripe) => {
@@ -27,26 +27,27 @@ const PaymentForm = ({ shippingData, backStep, nextStep }) => {
 
     if (error) console.log(error);
     else {
-      const orderData = {
-        customer: {
-          firstname: shippingData.firstName,
-          lastname: shippingData.lastName,
-          email: shippingData.email,
-        },
-        payment: {
-          gateway: "stripe",
-          stripe: {
-            payment_method_id: paymentMethod.id,
-          },
-        },
-      };
+      // const orderData = {
+      //   customer: {
+      //     firstname: shippingData.firstName,
+      //     lastname: shippingData.lastName,
+      //     email: shippingData.email,
+      //   },
+      //   payment: {
+      //     gateway: "stripe",
+      //     stripe: {
+      //       payment_method_id: paymentMethod.id,
+      //     },
+      //   },
+      // };
       nextStep();
+      setCartItems({}); //reset cart
     }
   };
 
   return (
     <>
-      <Review cartItems={cartItems} subtotal={subtotal} />
+      <Overview cartItems={cartItems} subtotal={subtotal} />
       <Divider />
       <Typography variant="h6" gutterBottom style={{ margin: "20px 0" }}>
         Payment method

@@ -5,11 +5,13 @@
     rgba(33, 107, 101, 0.66) 109.64%
   );
 }
+
 header {
   background: var(--main-bg-color);
   align-items: center;
+  justify-content: center;
   display: flex;
-  height: 20vh;
+  height: 8vh;
   width: 100%;
   box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
 }
@@ -23,6 +25,10 @@ header {
 }
 .logo-container {
   flex: 1;
+  margin-top: 0.7rem;
+}
+.logo-container img {
+  width: 80%;
 }
 
 header nav {
@@ -32,6 +38,7 @@ header nav {
 .nav-links {
   justify-content: space-evenly;
   list-style: none;
+  margin: 0;
 }
 
 .cart {
@@ -59,10 +66,12 @@ header nav {
   body {
     position: relative;
   }
-  .logo {
+  .logo-container img {
     padding: 0 0 0 0.5rem;
+    width: 160px;
   }
   header {
+    /* position: fixed; */
     width: 100%;
     top: 0;
     z-index: 3;
@@ -71,7 +80,8 @@ header nav {
     position: absolute;
     right: 0px;
     height: 80%;
-    top: 20vh;
+    margin-top: 1rem;
+    top: 5.5vh;
     background: var(--main-bg-color);
     display: flex;
     flex-direction: column;

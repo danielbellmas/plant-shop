@@ -16,7 +16,7 @@
   flex-direction: row;
   color: whitesmoke;
   background: radial-gradient(rgba(33, 107, 101, 0.561), #fff);
-  height: 80vh;
+  height: 92vh;
 }
 
 .slogan p {
@@ -33,7 +33,8 @@
   filter: drop-shadow(0.2rem 0.2rem 0.5rem rgba(49, 49, 49, 0.555));
   overflow: hidden;
   transform: translatey(0px);
-  animation: float 5s ease-in-out infinite;
+  --float-length: -2.5rem;
+  animation: float 7s ease-in-out infinite;
   margin-right: 1.5rem;
 }
 
@@ -98,6 +99,7 @@
   }
   .calathea {
     width: 50%;
+    --float-length: 3rem;
   }
   .arrow {
     visibility: hidden;

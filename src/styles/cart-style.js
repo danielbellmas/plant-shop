@@ -19,6 +19,7 @@ export default makeStyles((theme) => ({
     display: "grid",
     placeItems: "center",
     marginBottom: "2rem",
+    height: "69.8vh",
   },
   emptyButton: {
     minWidth: "150px",

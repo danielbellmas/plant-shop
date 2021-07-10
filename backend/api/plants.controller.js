@@ -4,7 +4,7 @@ export default class PlantsController {
   static async apiGetPlants(req, res, next) {
     const plantsPerPage = req.query.plantsPerPage
       ? parseInt(req.query.plantsPerPage, 10)
-      : 20;
+      : 36;
     const page = req.query.page ? parseInt(req.query.page, 10) : 0;
 
     let filters = {};

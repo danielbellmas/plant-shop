@@ -17,7 +17,7 @@ export default class PlantsDAO {
   static async getPlants({
     filters = null,
     page = 0,
-    plantsPerPage = 12,
+    plantsPerPage = 36,
   } = {}) {
     let query;
     if (filters) {

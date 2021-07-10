@@ -5,7 +5,7 @@ import {
   Step,
   StepLabel,
   Typography,
-  CircularProgress,
+  // CircularProgress,
   Divider,
   Button,
   CssBaseline,
@@ -13,7 +13,6 @@ import {
 import useStyles from "../../styles/checkout-style";
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
-import { Link } from "react-router-dom";
 const steps = ["Shipping address", "Payment details"];
 
 const Checkout = () => {

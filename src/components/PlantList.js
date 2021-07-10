@@ -13,73 +13,12 @@ import Plant from "./Plant";
 import { ProductContext } from "../PlantContext";
 import Slider from "@material-ui/core/Slider";
 
-const PrettoSlider = withStyles({
-  root: {
-    color: "#52af77",
-    height: 8,
-    width: 300,
-  },
-  thumb: {
-    height: 24,
-    width: 24,
-    backgroundColor: "#fff",
-    border: "2px solid currentColor",
-    marginTop: -8,
-    marginLeft: -12,
-    "&:focus, &:hover, &$active": {
-      boxShadow: "inherit",
-    },
-  },
-  active: {},
-  valueLabel: {
-    left: "calc(-50% + 4px)",
-  },
-  track: {
-    height: 8,
-    borderRadius: 4,
-  },
-  rail: {
-    height: 8,
-    borderRadius: 4,
-  },
-})(Slider);
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: "2px 4px",
-    margin: "0 0 1rem",
-    display: "inline-flex",
-  },
-  input: {
-    marginLeft: theme.spacing(1),
-    flex: 1,
-  },
-  iconButton: {
-    padding: 10,
-  },
-}));
-
 const PlantList = () => {
   const [plants] = useContext(ProductContext);
-  const [prices, setPrices] = useState([]);
-
-  useEffect(() => {
-    // console.log(plants);
-    setPrices(plants.map((plant) => parseFloat(plant.price.replace("$", ""))));
-
-    console.log(prices);
-    let minPrice = Math.min(...prices);
-    let maxPrice = Math.max(...prices);
-    console.log({ minPrice, maxPrice });
-    localStorage.setItem("min", minPrice);
-    localStorage.setItem("max", maxPrice);
-  }, []);
+  const [filteredPlants, setFilteredPlants] = useState(plants);
   const maxPlantPrice = parseInt(localStorage.getItem("max"));
   const minPlantPrice = parseInt(localStorage.getItem("min"));
-
-  const [filteredPlants, setFilteredPlants] = useState(plants);
   const [sliderValue, setSliderValue] = useState(maxPlantPrice);
-
   const classes = useStyles();
 
   const searchRef = useRef(null);
@@ -190,3 +129,48 @@ const PlantList = () => {
 };
 
 export default PlantList;
+const PrettoSlider = withStyles({
+  root: {
+    color: "#52af77",
+    height: 8,
+    width: 300,
+  },
+  thumb: {
+    height: 24,
+    width: 24,
+    backgroundColor: "#fff",
+    border: "2px solid currentColor",
+    marginTop: -8,
+    marginLeft: -12,
+    "&:focus, &:hover, &$active": {
+      boxShadow: "inherit",
+    },
+  },
+  active: {},
+  valueLabel: {
+    left: "calc(-50% + 4px)",
+  },
+  track: {
+    height: 8,
+    borderRadius: 4,
+  },
+  rail: {
+    height: 8,
+    borderRadius: 4,
+  },
+})(Slider);
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: "2px 4px",
+    margin: "0 0 1rem",
+    display: "inline-flex",
+  },
+  input: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+  },
+}));

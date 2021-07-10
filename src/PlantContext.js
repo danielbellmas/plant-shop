@@ -1,24 +1,30 @@
 import React, { useState, useEffect, createContext } from "react";
-import plantDB from "./plantDB.json";
+// import plantDB from "./plantDB.json";
+import PlantDataService from "./services/plant.js";
 
 export const ProductContext = createContext();
 export const CartContext = createContext();
 export const CartSubtotalContext = createContext();
 
 export const ProductProvider = (props) => {
-  const [plants, setPlants] = useState(plantDB);
+  const [plants, setPlants] = useState([]); //plantDB);
   const [cartItems, setCartItems] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
 
   useEffect(() => {
-    let plantPrices = plants.map((plant) =>
-      parseFloat(plant["price"].replace("$", ""))
-    );
-    let minPrice = Math.min(...plantPrices);
-    let maxPrice = Math.max(...plantPrices);
-    localStorage.setItem("min", minPrice);
-    localStorage.setItem("max", maxPrice);
+    retrievePlants();
   }, []);
+
+  const retrievePlants = () => {
+    PlantDataService.getAll()
+      .then((response) => {
+        // console.log(response.data.plants);
+        setPlants(response.data.plants);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <ProductContext.Provider value={[plants, setPlants]}>

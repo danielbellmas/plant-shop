@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import {
   Grid,
   InputBase,
@@ -60,9 +60,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PlantList = () => {
+  const [plants] = useContext(ProductContext);
+  const [prices, setPrices] = useState([]);
+
+  useEffect(() => {
+    // console.log(plants);
+    setPrices(plants.map((plant) => parseFloat(plant.price.replace("$", ""))));
+
+    console.log(prices);
+    let minPrice = Math.min(...prices);
+    let maxPrice = Math.max(...prices);
+    console.log({ minPrice, maxPrice });
+    localStorage.setItem("min", minPrice);
+    localStorage.setItem("max", maxPrice);
+  }, []);
   const maxPlantPrice = parseInt(localStorage.getItem("max"));
   const minPlantPrice = parseInt(localStorage.getItem("min"));
-  const [plants] = useContext(ProductContext);
+
   const [filteredPlants, setFilteredPlants] = useState(plants);
   const [sliderValue, setSliderValue] = useState(maxPlantPrice);
 

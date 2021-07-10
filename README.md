@@ -1,5 +1,6 @@
 # E-commerce plant nursery
-![‏‏לכידה](https://user-images.githubusercontent.com/76179660/123539103-b89b5b00-d740-11eb-8ae8-088f3114c767.PNG)
+
+![‏‏לכידה](https://user-images.githubusercontent.com/76179660/125072536-656fc380-e0c3-11eb-832f-5268a388e15c.PNG)
 
 A nursery e-commerce shop called _grow._.
 The project is scraping the data from another website using python and selenium.

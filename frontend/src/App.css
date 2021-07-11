@@ -21,5 +21,11 @@ body {
   min-height: 100vh;
 }
 #content-wrap {
-  padding-bottom: 15rem;
+  padding-bottom: 10rem;
+}
+
+@media screen and (max-width: 900px) {
+  #content-wrap {
+    padding-bottom: 16rem;
+  }
 }

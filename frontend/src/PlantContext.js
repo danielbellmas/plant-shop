@@ -8,7 +8,9 @@ export const CartSubtotalContext = createContext();
 
 export const ProductProvider = (props) => {
   const [plants, setPlants] = useState(plantDB);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(
+    localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []
+  );
   const [subtotal, setSubtotal] = useState(0);
 
   useEffect(() => {

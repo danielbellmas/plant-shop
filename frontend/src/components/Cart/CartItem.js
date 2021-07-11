@@ -48,7 +48,11 @@ const CartItem = ({ item, CalculateSubtotal }) => {
       confirmButtonText: "Yes, delete!",
     }).then((result) => {
       if (result.isConfirmed) {
-        setCartItems(cartItems.filter((cartItem) => item.id !== cartItem.id));
+        localStorage.setItem(
+          "cart",
+          cartItems.filter((cartItem) => item.id !== cartItem.id)
+        );
+        setCartItems(JSON.parse(localStorage.getItem("cart")));
         Swal.fire("Deleted!", "", "success");
       }
     });

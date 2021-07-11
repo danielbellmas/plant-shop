@@ -22,8 +22,15 @@ const Plant = ({ plant }) => {
 
   const AddToCart = () => {
     let existingItemIndex = cartItems.findIndex((item) => item.id === plant.id);
-    if (existingItemIndex >= 0) cartItems[existingItemIndex].quantity += 1;
-    else setCartItems([...cartItems, { ...plant, quantity: 1 }]);
+    if (existingItemIndex >= 0) {
+      cartItems[existingItemIndex].quantity += 1;
+    } else {
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([...cartItems, { ...plant, quantity: 1 }])
+      );
+      setCartItems(JSON.parse(localStorage.getItem("cart")));
+    }
     Swal.fire({
       position: "top-end",
       title: `${name} successfully added to cart!`,

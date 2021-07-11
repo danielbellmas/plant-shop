@@ -1,12 +1,13 @@
 import React, { useState, useEffect, createContext } from "react";
 import PlantDataService from "./services/plant.js";
+import plantDB from "./plantDB.json";
 
 export const ProductContext = createContext();
 export const CartContext = createContext();
 export const CartSubtotalContext = createContext();
 
 export const ProductProvider = (props) => {
-  const [plants, setPlants] = useState([]);
+  const [plants, setPlants] = useState(plantDB);
   const [cartItems, setCartItems] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
 

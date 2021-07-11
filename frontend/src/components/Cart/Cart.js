@@ -62,7 +62,7 @@ const Cart = () => {
   );
   const FilledCart = () => (
     <>
-      <Grid container spacing={3} justify="space-around">
+      <Grid container spacing={3}>
         {cartItems.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
             <CartItem item={item} CalculateSubtotal={CalculateSubtotal} />

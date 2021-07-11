@@ -19,7 +19,7 @@ export default makeStyles((theme) => ({
     display: "grid",
     placeItems: "center",
     marginBottom: "2rem",
-    height: "69.8vh",
+    height: "fit-content",
   },
   emptyButton: {
     minWidth: "150px",
@@ -49,6 +49,6 @@ export default makeStyles((theme) => ({
     flexWrap: "wrap",
     marginTop: "10%",
     width: "100%",
-    justifyContent: "space-around",
+    justifyContent: "space-evenly",
   },
 }));

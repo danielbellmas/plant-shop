@@ -5,6 +5,7 @@
 header {
   position: sticky;
   top: 0;
+  left: 0;
   z-index: 1;
   background: var(--main-bg-color);
   align-items: center;
@@ -78,7 +79,7 @@ header nav {
     right: 0px;
     height: 80%;
     margin-top: 1rem;
-    top: 6vh;
+    top: 5.5vh;
     background: var(--main-bg-color);
     display: flex;
     flex-direction: column;
@@ -97,6 +98,9 @@ header nav {
     margin-right: 0.7rem;
     display: block;
     cursor: pointer;
+  }
+  .space-after-header {
+    height: 2rem;
   }
 }
 

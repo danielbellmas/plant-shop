@@ -39,7 +39,7 @@ const Cart = () => {
 
   const EmptyCart = () => (
     <>
-      <Typography style={{ fontSize: "2rem" }}>
+      <Typography style={{ fontSize: "2rem", textAlign: "center" }}>
         There are no plants in your cart
       </Typography>
       <br />
@@ -62,7 +62,7 @@ const Cart = () => {
   );
   const FilledCart = () => (
     <>
-      <Grid container spacing={3} justify="space-around">
+      <Grid container spacing={3}>
         {cartItems.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
             <CartItem item={item} CalculateSubtotal={CalculateSubtotal} />

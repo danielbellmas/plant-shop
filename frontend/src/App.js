@@ -37,17 +37,19 @@ function App() {
     >
       <Router>
         <Nav />
-        <div>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/products" component={PlantList} />
-            <Route path="/products/:id" component={PlantDetails} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="/checkout" component={Checkout} />
-            <Route exact path="/contacts" component={Contacts} />
-            <Route exact path="/signin" component={SignIn} />
-            <Route exact path="/signup" component={SignUp} />
-          </Switch>
+        <div id="page-container">
+          <div id="content-wrap">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/products" component={PlantList} />
+              <Route path="/products/:id" component={PlantDetails} />
+              <Route exact path="/cart" component={Cart} />
+              <Route exact path="/checkout" component={Checkout} />
+              <Route exact path="/contacts" component={Contacts} />
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} />
+            </Switch>
+          </div>
           <Footer />
         </div>
       </Router>

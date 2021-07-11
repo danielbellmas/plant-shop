@@ -50,7 +50,9 @@ const CartItem = ({ item, CalculateSubtotal }) => {
       if (result.isConfirmed) {
         localStorage.setItem(
           "cart",
-          cartItems.filter((cartItem) => item.id !== cartItem.id)
+          JSON.stringify(
+            cartItems.filter((cartItem) => item.id !== cartItem.id)
+          )
         );
         setCartItems(JSON.parse(localStorage.getItem("cart")));
         Swal.fire("Deleted!", "", "success");

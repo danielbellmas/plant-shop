@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useCallback } from "react";
 import { Typography, Container, Button, Grid } from "@material-ui/core";
 import useStyles from "../../styles/cart-style.js";
 import { Link } from "react-router-dom";
@@ -13,13 +13,13 @@ const Cart = () => {
     CalculateSubtotal();
   }, [cartItems]);
 
-  const CalculateSubtotal = () => {
+  const CalculateSubtotal = useCallback(() => {
     let sum = 0;
     cartItems.forEach((item) => {
       sum += item.quantity * parseFloat(item.price.replace("$", ""));
     });
     setSubtotal(parseFloat(sum).toFixed(2));
-  };
+  }, []);
   const handleEmptyCart = () => {
     Swal.fire({
       title: "Are you sure?",

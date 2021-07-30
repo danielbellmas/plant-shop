@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   title: {
-    marginTop: "5%",
+    marginTop: "3%",
     display: "grid",
     placeItems: "center",
     textAlign: "center",
@@ -47,7 +47,7 @@ export default makeStyles((theme) => ({
   cardDetails: {
     display: "flex",
     flexWrap: "wrap",
-    marginTop: "10%",
+    marginTop: "3%",
     width: "100%",
     justifyContent: "space-evenly",
   },

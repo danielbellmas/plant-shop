@@ -19,7 +19,7 @@ const Cart = () => {
       sum += item.quantity * parseFloat(item.price.replace("$", ""));
     });
     setSubtotal(parseFloat(sum).toFixed(2));
-  }, []);
+  }, [cartItems]);
   const handleEmptyCart = () => {
     Swal.fire({
       title: "Are you sure?",

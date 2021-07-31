@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import preloader from "./images/preloader.gif";
 import "./App.css";
+import ReactGA from "react-ga";
 const Cart = React.lazy(() => import("./components/Cart/Cart"));
 const Nav = React.lazy(() => import("./components/Nav"));
 const PlantList = React.lazy(() => import("./components/PlantList"));
@@ -14,6 +15,8 @@ const SignIn = React.lazy(() => import("./components/SignIn"));
 const SignUp = React.lazy(() => import("./components/SignUp"));
 
 function App() {
+  ReactGA.initialize("UA-202264338-1");
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <Suspense
       fallback={

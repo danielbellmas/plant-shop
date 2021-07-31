@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   Card,
@@ -16,10 +16,6 @@ const CartItem = ({ item, CalculateSubtotal }) => {
   const [cartItems, setCartItems] = useContext(CartContext);
   const [itemQuantity, setItemQuantity] = useState(item.quantity);
   let itemIndex = cartItems.findIndex((plant) => plant.id === item.id);
-
-  useEffect(() => {
-    CalculateSubtotal();
-  }, [itemQuantity]);
 
   const IncrementQuantity = () => {
     let newQuantity = itemQuantity + 1;

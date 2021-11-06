@@ -9,9 +9,6 @@ import Swal from "sweetalert2";
 const Cart = () => {
   const [cartItems, setCartItems] = useContext(CartContext);
   const [subtotal, setSubtotal] = useContext(CartSubtotalContext);
-  useEffect(() => {
-    CalculateSubtotal();
-  }, [cartItems]);
 
   const CalculateSubtotal = useCallback(() => {
     let sum = 0;
@@ -19,7 +16,12 @@ const Cart = () => {
       sum += item.quantity * parseFloat(item.price.replace("$", ""));
     });
     setSubtotal(parseFloat(sum).toFixed(2));
-  }, [cartItems]);
+  }, [cartItems, setSubtotal]);
+
+  useEffect(() => {
+    CalculateSubtotal();
+  }, [cartItems, setSubtotal, CalculateSubtotal]);
+
   const handleEmptyCart = () => {
     Swal.fire({
       title: "Are you sure?",

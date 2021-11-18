@@ -20,4 +20,9 @@ export default makeStyles(() => ({
     justifyContent: "space-around",
     alignItems: "center",
   },
+  cardContentText: {
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+  },
 }));

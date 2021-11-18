@@ -61,7 +61,11 @@ const Plant = ({ plant }) => {
       />
       <CardContent>
         <div className={classes.cardContent}>
-          <Typography variant="h5" gutterBottom>
+          <Typography
+            className={classes.cardContentText}
+            variant="h5"
+            gutterBottom
+          >
             {name}
           </Typography>
           <Typography variant="h5">{price}</Typography>

@@ -1,14 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import json
 import re
 
 
 class HouseplantBot:
-    def __init__(self, driver, path, base_url):
+    def __init__(self, driver, base_url):
         self.driver = driver
-        self.path = path
         self.base_url = base_url
         self.plant_list = []
 
@@ -69,10 +69,9 @@ class HouseplantBot:
 
 
 chrome_options = Options()
-chrome_options.add_argument("--headless")
-PATH = "C:\Program Files (x86)\chromedriver.exe"
-driver = webdriver.Chrome(PATH, chrome_options=chrome_options)
+# chrome_options.add_argument("--headless")
+driver = webdriver.Chrome(ChromeDriverManager().install())
 BASE_URL = 'https://redsquareflowers.com'
 
-bot = HouseplantBot(driver, PATH, BASE_URL)
+bot = HouseplantBot(driver, BASE_URL)
 bot.createPlantData()

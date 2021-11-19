@@ -1,4 +1,4 @@
-import logo from "../images/grow-logo.png";
+// import logo from "../images/grow-logo.png";
 import { IconButton, Badge } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import React, { useContext } from "react";
@@ -42,7 +42,7 @@ const Nav = () => {
       <header>
         <div className="logo-container">
           <Link to="/">
-            <img className="logo" src={logo} alt="grow." />
+            {/* <img className="logo" src={logo} alt="grow." /> */}
           </Link>
         </div>
 

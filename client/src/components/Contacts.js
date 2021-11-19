@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Button, TextField } from "@material-ui/core";
-import plant from "../images/plant.png";
+// import plant from "../images/plant.png";
 import Swal from "sweetalert2";
 import "../styles/Contacts.css";
 const Contacts = () => {
@@ -14,19 +14,19 @@ const Contacts = () => {
 
     if (!validateEmail()) {
       //Maybe there is a way to check error with useForm
-      Swal.fire({
-        title: "Message Sent.",
-        icon: "success",
-        html: "We'll be in touch!",
-        width: 600,
-        padding: "3em",
-        backdrop: `
-      rgba(33, 107, 101, 0.3)
-      url("${plant}")
-      top center
-      no-repeat
-      `,
-      });
+      // Swal.fire({
+      //   title: "Message Sent.",
+      //   icon: "success",
+      //   html: "We'll be in touch!",
+      //   width: 600,
+      //   padding: "3em",
+      //   backdrop: `
+      // rgba(33, 107, 101, 0.3)
+      // url("${plant}")
+      // top center
+      // no-repeat
+      // `,
+      // });
 
       //Reset Fields
       reset(data);
@@ -106,7 +106,7 @@ const Contacts = () => {
           Send
         </Button>
       </form>
-      <img id="plant-icon" src={plant} alt="plant-icon" />
+      {/* <img id="plant-icon" src={plant} alt="plant-icon" /> */}
     </div>
   );
 };

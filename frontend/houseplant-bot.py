@@ -57,15 +57,15 @@ class HouseplantBot:
             ).capitalize()  # .replace(". ", ".\n")
 
     def addToJson(self):
-        out_file = open("src\plantDB.json", "w")
+        out_file = open("plantDB.json", "w")
         json.dump(self.plant_list, out_file, indent=6)
         out_file.close()
-        self.driver.quit()
 
     def createPlantData(self):
         self.getNameAndPriceList()
         self.getDetailsUpdateList()
         self.addToJson()
+        self.driver.quit()
 
 
 chrome_options = Options()

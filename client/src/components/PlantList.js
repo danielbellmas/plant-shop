@@ -101,7 +101,7 @@ const PlantList = () => {
 
       {filteredPlants.length !== 0 ? (
         <>
-          <Grid container justify="center" spacing={3}>
+          <Grid container justifyContent="center" spacing={3}>
             {displayPlants.map((plant) => (
               <Grid item key={plant.id} xs={12} sm={6} md={4} lg={3}>
                 <Plant plant={plant} />

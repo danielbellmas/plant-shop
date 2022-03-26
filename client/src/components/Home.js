@@ -40,7 +40,7 @@ const Home = () => {
       </div>
       <section id="featured-plants" className="featured-plants">
         <h1>Featured Plants</h1>
-        <Grid container justify="center" spacing={2}>
+        <Grid container justifyContent="center" spacing={2}>
           {plants.slice(plants.length - 3, plants.length).map((plant) => (
             <Grid item key={plant.id} xs={12} sm={6} md={4} lg={3}>
               <Plant plant={plant} />

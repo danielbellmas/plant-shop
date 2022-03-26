@@ -1,13 +1,12 @@
 import React, { useState, useEffect, createContext } from "react";
 import PlantDataService from "./services/plant.js";
-import plantDB from "./plantDB.json";
 
 export const ProductContext = createContext();
 export const CartContext = createContext();
 export const CartSubtotalContext = createContext();
 
 export const ProductProvider = (props) => {
-  const [plants, setPlants] = useState(plantDB);
+  const [plants, setPlants] = useState([]);
   const [cartItems, setCartItems] = useState(
     localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []
   );
@@ -15,29 +14,21 @@ export const ProductProvider = (props) => {
 
   useEffect(() => {
     retrievePlants();
-    let prices = plants.map((plant) =>
-      parseFloat(plant.price.replace("$", ""))
-    );
-
-    let minPrice = Math.min(...prices);
-    let maxPrice = Math.max(...prices);
-    localStorage.setItem("min", minPrice);
-    localStorage.setItem("max", maxPrice);
-  }, [plants]);
+  }, []);
 
   const retrievePlants = () => {
     PlantDataService.getAll()
       .then((response) => {
         setPlants(response.data.plants);
 
-        // let prices = response.data.plants.map((plant) =>
-        //   parseFloat(plant.price.replace("$", ""))
-        // );
+        let prices = response.data.plants.map((plant) =>
+          parseFloat(plant.price.replace("$", ""))
+        );
 
-        // let minPrice = Math.min(...prices);
-        // let maxPrice = Math.max(...prices);
-        // localStorage.setItem("min", minPrice);
-        // localStorage.setItem("max", maxPrice);
+        let minPrice = Math.min(...prices);
+        let maxPrice = Math.max(...prices);
+        localStorage.setItem("min", minPrice);
+        localStorage.setItem("max", maxPrice);
       })
       .catch((e) => {
         console.log(e);

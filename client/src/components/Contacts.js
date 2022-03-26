@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Button, TextField } from "@material-ui/core";
-// import plant from "../images/plant.png";
 import Swal from "sweetalert2";
 import "../styles/Contacts.css";
 const Contacts = () => {
@@ -106,7 +105,7 @@ const Contacts = () => {
           Send
         </Button>
       </form>
-      {/* <img id="plant-icon" src={plant} alt="plant-icon" /> */}
+      <img id="plant-icon" src="/images/plant.png" alt="plant-icon" />
     </div>
   );
 };

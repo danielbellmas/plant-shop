@@ -4,7 +4,6 @@ import { Grid } from "@material-ui/core";
 import Plant from "./Plant";
 import { ProductContext } from "../PlantContext";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
-// import Leaf from "../images/calethea_leaf.png";
 
 const Home = () => {
   const [plants] = useContext(ProductContext);
@@ -19,7 +18,11 @@ const Home = () => {
   return (
     <>
       <section id="main-content" className="main-content">
-        {/* <img className="calathea" src={Leaf} alt="Calathea Leaf" /> */}
+        <img
+          className="calathea"
+          src="/images/calethea_leaf.png"
+          alt="Calathea Leaf"
+        />
 
         <div className="slogan">
           <span>

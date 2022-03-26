@@ -72,8 +72,8 @@ const Plant = ({ plant }) => {
         </div>
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton aria-label="Add To Cart">
-          <AddShoppingCart onClick={AddToCart} />
+        <IconButton aria-label="Add To Cart" onClick={AddToCart}>
+          <AddShoppingCart />
         </IconButton>
       </CardActions>
     </Card>

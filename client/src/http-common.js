@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const { REACT_APP_API_URL } = process.env;
+
 export default axios.create({
-  baseURL: "http://localhost:5000/api/v1/plants", //"https://grow-shop-backend.herokuapp.com/api/v1/plants"
+  baseURL: REACT_APP_API_URL,
   headers: {
     "Content-type": "application/json",
   },

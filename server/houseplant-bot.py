@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-import time
 import json
 import re
 
@@ -16,7 +15,6 @@ class HouseplantBot:
         for page in range(1, 4):
             self.driver.get(
                 f'{self.base_url}/product-category/houseplants-planters-madison-wi/page/{page}/')
-            # time.sleep(3)
             plantData = self.driver.find_elements_by_class_name(
                 "product_cat-houseplants-planters-madison-wi")
             counter = 1

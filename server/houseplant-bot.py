@@ -36,7 +36,6 @@ class HouseplantBot:
         for i in range(len(self.plant_list)):
             name = re.sub(' \([^)]*\)', "", self.plant_list[i]
                           ["name"])  # deleting whatever is in ()
-            # name = name.replace(" OF", "")
             nameSearch = "-".join(name.split(" "))
             try:
                 self.driver.get(f'{self.base_url}/product/{nameSearch}')
@@ -52,7 +51,7 @@ class HouseplantBot:
                     details = ""
                 details = ""
             self.plant_list[i]["details"] = details.strip(
-            ).capitalize()  # .replace(". ", ".\n")
+            ).capitalize()  
 
     def addToJson(self):
         out_file = open("plantDB.json", "w")

@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import json
 import re
+import random 
 
 
 class HouseplantBot:
@@ -24,7 +25,13 @@ class HouseplantBot:
 
                 plant_split = plant.text.split("\n")
                 name = plant_split[0].title()
-                price = plant_split[1].split(" ")[0]
+
+                if len(plant_split) == 2:
+                    price = plant_split[1].split(" ")[0]
+                else:
+                    """ random price """ 
+                    price = f'{random.randint(5, 20)}.{random.randint(0, 99)}'
+
 
                 # Add to list
                 self.plant_list.append({"id": f"12a3b{page}{counter}", "name": name,

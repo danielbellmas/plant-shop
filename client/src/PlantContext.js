@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
-import PlantDataService from "./services/plant.js";
+// import PlantDataService from "./services/plant.js";
+import plantDB from "./data/plantDB.json";
 
 export const ProductContext = createContext();
 export const CartContext = createContext();
@@ -17,6 +18,16 @@ export const ProductProvider = (props) => {
   }, []);
 
   const retrievePlants = () => {
+    setPlants(plantDB);
+
+    let prices = plantDB.map((plant) =>
+      parseFloat(plant.price.replace("$", ""))
+    );
+    let minPrice = Math.min(...prices);
+    let maxPrice = Math.max(...prices);
+    localStorage.setItem("min", minPrice);
+    localStorage.setItem("max", maxPrice);
+
     // PlantDataService.getAll()
     //   .then((response) => {
     //     setPlants(response.data.plants);

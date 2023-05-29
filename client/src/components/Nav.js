@@ -42,7 +42,13 @@ const Nav = () => {
       <header>
         <div className="logo-container">
           <Link to="/">
-            <img className="logo" src="/images/grow-logo.png" alt="grow." />
+            <img
+              className="logo"
+              src="/images/grow-logo.png"
+              alt="grow."
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+            />
           </Link>
         </div>
 

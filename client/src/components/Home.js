@@ -20,8 +20,10 @@ const Home = () => {
       <section id="main-content" className="main-content">
         <img
           className="calathea"
-          src="/images/calethea_leaf.png"
+          src="/images/calethea_leaf.webp"
           alt="Calathea Leaf"
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
         />
 
         <div className="slogan">

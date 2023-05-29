@@ -21,7 +21,7 @@ const Nav = () => {
       burger.classList.toggle("burger-shape");
 
       //Animation Links
-      navLinks.forEach((link, index) => {
+      navLinks.forEach((link: HTMLElement, index) => {
         if (link.style.animation) link.style.animation = "";
         else
           link.style.animation = `navLinkFade 0.5s ease forwards ${

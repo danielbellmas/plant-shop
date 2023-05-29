@@ -27,7 +27,7 @@ function App() {
           rel="preload"
           href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2"
           as="font"
-          crossOrigin
+          crossOrigin="anonymous"
         />
       </Helmet>
 

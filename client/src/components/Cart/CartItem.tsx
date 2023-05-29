@@ -30,6 +30,7 @@ const CartItem = ({ item, CalculateSubtotal }) => {
     if (itemQuantity > 1) newQuantity = itemQuantity - 1;
     else newQuantity = 1;
     cartItems[itemIndex].quantity = newQuantity;
+
     setItemQuantity(newQuantity);
     CalculateSubtotal();
   };
@@ -61,10 +62,9 @@ const CartItem = ({ item, CalculateSubtotal }) => {
     <Card className={classes.card}>
       <CardMedia
         component={Link}
+        className={classes.media}
         to={`/products/${item.id}`}
         image={item.image}
-        alt={item.name}
-        className={classes.media}
       />
       <CardContent className={classes.cardContent}>
         <Typography variant="h4">{item.name}</Typography>
@@ -76,12 +76,7 @@ const CartItem = ({ item, CalculateSubtotal }) => {
             -
           </Button>
           <Typography>{itemQuantity}</Typography>
-          <Button
-            color=""
-            type="button"
-            size="small"
-            onClick={IncrementQuantity}
-          >
+          <Button type="button" size="small" onClick={IncrementQuantity}>
             +
           </Button>
         </div>

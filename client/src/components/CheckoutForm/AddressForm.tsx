@@ -22,7 +22,7 @@ const AddressForm = ({ next, setShippingData }) => {
               required
               name="firstName"
               label="First name"
-              autoComplete="given-name"
+              // autoComplete="given-name"
             />
             <FormInput required name="lastName" label="Last name" />
             <FormInput required name="address" label="Address" />

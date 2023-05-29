@@ -7,15 +7,15 @@ import CartItem from "../Cart/CartItem";
 import Swal from "sweetalert2";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useContext(CartContext);
-  const [subtotal, setSubtotal] = useContext(CartSubtotalContext);
+  const [cartItems, setCartItems] = useContext<any>(CartContext);
+  const [subtotal, setSubtotal] = useContext<any>(CartSubtotalContext);
 
   const CalculateSubtotal = useCallback(() => {
     let sum = 0;
     cartItems.forEach((item) => {
       sum += item.quantity * parseFloat(item.price.replace("$", ""));
     });
-    setSubtotal(parseFloat(sum).toFixed(2));
+    setSubtotal(parseFloat(sum.toString()).toFixed(2));
   }, [cartItems, setSubtotal]);
 
   useEffect(() => {

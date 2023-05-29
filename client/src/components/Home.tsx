@@ -11,7 +11,7 @@ const Home = () => {
   const smoothScroll = () => {
     const el = document.querySelector("#featured-plants");
     el.scrollIntoView({ block: "center", behavior: "smooth" });
-    const arrow = document.querySelector(".arrow");
+    const arrow = document.querySelector<HTMLElement>(".arrow");
     arrow.style.visibility = "hidden";
   };
 
@@ -40,7 +40,6 @@ const Home = () => {
         <ArrowDownwardIcon
           style={{ width: 60, height: "auto" }}
           fontSize="large"
-          justify="center"
         />
       </div>
       <section id="featured-plants" className="featured-plants">

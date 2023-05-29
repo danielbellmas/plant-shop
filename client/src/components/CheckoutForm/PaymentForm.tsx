@@ -7,11 +7,11 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Overview from "./Overview";
-import { CartContext, CartSubtotalContext } from "../../PlantContext";
+import { CartContext, CartSubtotalContext, Product } from "../../PlantContext";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-const PaymentForm = ({ backStep, nextStep }) => {
+const PaymentForm = ({ backStep, nextStep, shippingData }) => {
   const [cartItems, setCartItems] = useContext(CartContext);
   const [subtotal] = useContext(CartSubtotalContext);
 
@@ -41,7 +41,7 @@ const PaymentForm = ({ backStep, nextStep }) => {
       //   },
       // };
       nextStep();
-      setCartItems({}); //reset cart
+      setCartItems([] as Product[]); //reset cart
     }
   };
 

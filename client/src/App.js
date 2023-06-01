@@ -22,10 +22,16 @@ function App() {
     <HelmetProvider>
       <Helmet>
         <title>Plant Shop</title>
-
         <link
           rel="preload"
           href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2"
+          as="font"
+          crossOrigin
+        />
+
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2"
           as="font"
           crossOrigin
         />

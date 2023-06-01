@@ -22,7 +22,7 @@
 .slogan p {
   font-size: 2rem;
 }
-.slogan span {
+.slogan h1 {
   font-size: 4rem;
   font-weight: 600;
 }
@@ -82,15 +82,21 @@
   place-items: center;
   margin-bottom: 2rem;
 }
-.featured-plants h1::after {
+
+.featured-plants h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.featured-plants h2::after {
   content: "";
   background: var(--main-bg-color);
   width: 10rem;
   height: 0.5rem;
   border-radius: 0.5rem;
-  display: grid;
-  place-items: center;
-  transform: translateX(50%);
+  position: absolute;
+  left: 20%;
+  bottom: -3px;
 }
 @media screen and (max-width: 600px) {
   .slogan {
@@ -107,6 +113,11 @@
   }
   .main-content {
     height: 100vh;
+  }
+
+  .featured-plants {
+    display: block;
+    text-align: center;
   }
 }
 

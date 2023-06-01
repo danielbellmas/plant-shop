@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import "../styles/Home.css";
 import { Grid } from "@material-ui/core";
 import Plant from "./Plant";
 import { ProductContext } from "../PlantContext";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 
+import "../styles/Home.css";
 const Home = () => {
   const [plants] = useContext(ProductContext);
 
@@ -27,9 +27,9 @@ const Home = () => {
         />
 
         <div className="slogan">
-          <span>
+          <h1>
             grow. <br />
-          </span>
+          </h1>
           <p>See The Growth, Feel The Shine.</p>
           <a href="/products" className="btn">
             Shop Now
@@ -44,8 +44,8 @@ const Home = () => {
         />
       </div>
       <section id="featured-plants" className="featured-plants">
-        <h1>Featured Plants</h1>
-        <Grid container justifyContent="center" spacing={2}>
+        <h2>Featured Plants</h2>
+        <Grid container marginInline="auto" justifyContent="center" spacing={2}>
           {plants.slice(plants.length - 3, plants.length).map((plant) => (
             <Grid item key={plant.id} xs={12} sm={6} md={4} lg={3}>
               <Plant plant={plant} />

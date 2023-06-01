@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 import Plant from "./Plant";
 import { ProductContext } from "../PlantContext";
@@ -31,9 +32,9 @@ const Home = () => {
             grow. <br />
           </h1>
           <p>See The Growth, Feel The Shine.</p>
-          <a href="/products" className="btn">
+          <Link className="btn" to="/products">
             Shop Now
-          </a>
+          </Link>
         </div>
       </section>
       <div onClick={smoothScroll} className="arrow">
